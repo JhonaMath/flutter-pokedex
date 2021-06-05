@@ -80,6 +80,8 @@ flutter:
     - assets/hint_letter.svg
     - assets/pikachu_image.png
     - assets/pokeballAbierta.png
+    - assets/en_flag.png
+    - assets/es_flag.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

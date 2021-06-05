@@ -1,6 +1,8 @@
 
 
 
+import '../generalState.dart';
+
 class ApiPokemonAbility{
   int id;
   String name;
@@ -12,9 +14,11 @@ class ApiPokemonAbility{
 
     id = localJson["id"];
 
-    name=_getName("en", localJson['names']);
+    name=_getName("es", localJson['names']);
 
-    description = _getDescription("en", localJson["flavor_text_entries"]);
+    String lenguage = GeneralData.instance.generalStore.userSettings.language == Languages.English? "en":"es";
+
+    description = _getDescription(lenguage, localJson["flavor_text_entries"]);
 
 
   }

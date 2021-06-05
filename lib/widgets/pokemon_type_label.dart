@@ -1,5 +1,6 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/core/generalState.dart';
 import 'package:myapp/core/helpers/pokemon_helper.dart';
 
 class PokemonTypeLabel extends StatelessWidget {
@@ -10,6 +11,9 @@ class PokemonTypeLabel extends StatelessWidget {
   PokemonTypeLabel(this.type, this.visible, {Key key, this.size:0}) : super(key: key);
 
   Widget build(BuildContext context) {
+
+    Languages language = GeneralData.instance.generalStore.userSettings.language;
+
     return Container(
       decoration: BoxDecoration(
           color: this.visible
@@ -28,7 +32,7 @@ class PokemonTypeLabel extends StatelessWidget {
                 strokeWidth: 4.0,
                 strokeColor: Colors.black,
                 child: Text(
-                  pokemonTypeToString[this.type].toUpperCase(),
+                  language==Languages.English? pokemonTypeToString[this.type].toUpperCase(): pokemonTypeToStringEs[this.type].toUpperCase(),
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

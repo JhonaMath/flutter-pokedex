@@ -1,4 +1,6 @@
 
+import 'package:myapp/core/generalState.dart';
+
 class ApiPokemonSpecie {
   int id;
   String color;
@@ -49,7 +51,9 @@ class ApiPokemonSpecie {
         ? (genderRateAux).toDouble() / 8
         : genderRateAux.toDouble();
 
-    subName = _getSubName("en", json["genera"]);
-    description = _getDescription("en", json["flavor_text_entries"]);
+    String lenguage = GeneralData.instance.generalStore.userSettings.language == Languages.English? "en":"es";
+
+    subName = _getSubName(lenguage, json["genera"]);
+    description = _getDescription(lenguage, json["flavor_text_entries"]);
   }
 }

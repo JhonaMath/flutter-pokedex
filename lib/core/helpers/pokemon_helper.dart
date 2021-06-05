@@ -64,6 +64,27 @@ final Map<PokemonTypes, String> pokemonTypeToString = {
   PokemonTypes.WATER: "water",
 };
 
+final Map<PokemonTypes, String> pokemonTypeToStringEs = {
+  PokemonTypes.BUG: "bicho",
+  PokemonTypes.DARK: "siniestro",
+  PokemonTypes.DRAGON: "dragon",
+  PokemonTypes.ELECTRIC: "electrico",
+  PokemonTypes.FAIRY: "hada",
+  PokemonTypes.FIGHTING: "lucha",
+  PokemonTypes.FIRE: "fuego",
+  PokemonTypes.FLYING: "volador",
+  PokemonTypes.GHOST: "fantasma",
+  PokemonTypes.GRASS: "planta",
+  PokemonTypes.GROUND: "tierra",
+  PokemonTypes.ICE: "hielo",
+  PokemonTypes.NORMAL: "normal",
+  PokemonTypes.POISON: "veneno",
+  PokemonTypes.PSYCHIC: "psiquico",
+  PokemonTypes.ROCK: "roca",
+  PokemonTypes.STEEL: "acero",
+  PokemonTypes.WATER: "agua",
+};
+
 final Map<PokemonTypes, String> pokemonTypeAssetName = {
   PokemonTypes.BUG: "",
   PokemonTypes.DARK: "",

@@ -1,5 +1,6 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/core/generalState.dart';
 import 'package:myapp/core/helpers/pokemon_helper.dart';
 import 'package:myapp/core/models/pokemon_pokedex.dart';
 
@@ -63,12 +64,14 @@ class _PokedexPageTabs extends State<PokedexPageTabs> {
         pokemonTypeColor[widget.pokemon.types[0]].withAlpha(255);
     Color bottonSelectedColor=pokemonTypeColor[widget.pokemon.types[0]].withAlpha(180);
 
+    Languages lang = GeneralData.instance.generalStore.userSettings.language;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         this.tab("STATS", this.optionSelected== OptionsPokedexPageTabs.STATS?bottonSelectedColor:buttonColor, OptionsPokedexPageTabs.STATS),
         this.tab("EVOL", this.optionSelected== OptionsPokedexPageTabs.EVOLUTION?bottonSelectedColor:buttonColor, OptionsPokedexPageTabs.EVOLUTION),
-        this.tab("ABIL", this.optionSelected== OptionsPokedexPageTabs.ABILITIES?bottonSelectedColor:buttonColor, OptionsPokedexPageTabs.ABILITIES),
+        this.tab(lang==Languages.English?"ABIL":"HAB", this.optionSelected== OptionsPokedexPageTabs.ABILITIES?bottonSelectedColor:buttonColor, OptionsPokedexPageTabs.ABILITIES),
 //        this.tab("MOVES", this.optionSelected== OptionsPokedexPageTabs.MOVES?bottonSelectedColor:buttonColor, OptionsPokedexPageTabs.MOVES),
       ],
     );

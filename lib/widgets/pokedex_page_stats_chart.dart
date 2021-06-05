@@ -2,6 +2,7 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_charts/multi_charts.dart';
+import 'package:myapp/core/generalState.dart';
 import 'package:myapp/core/models/pokemon_pokedex.dart';
 
 class PokedexPageStatsChart extends StatefulWidget {
@@ -76,21 +77,24 @@ class _PokedexPageStatsChart extends State<PokedexPageStatsChart> {
   }
 
   Widget renderBarChart(){
+
+    Languages lang = GeneralData.instance.generalStore.userSettings.language;
+
     return Padding(
       padding: EdgeInsets.only(left: 15, right: 15),
       child: Column(
         children: <Widget>[
-          this.renderBar(widget.stats.speed, "Speed"),
+          this.renderBar(widget.stats.speed, lang==Languages.English?"Speed":"Velocidad"),
           Container(margin: EdgeInsets.only(top: 10),),
-          this.renderBar(widget.stats.attack, "Atk"),
+          this.renderBar(widget.stats.attack, lang==Languages.English?"Atk":"Ataque"),
           Container(margin: EdgeInsets.only(top: 10),),
-          this.renderBar(widget.stats.defense, "Def"),
+          this.renderBar(widget.stats.defense, lang==Languages.English?"Def":"Defensa"),
           Container(margin: EdgeInsets.only(top: 10),),
-          this.renderBar(widget.stats.specialAttack,"Sp.Atk"),
+          this.renderBar(widget.stats.specialAttack,lang==Languages.English?"Sp.Atk":"At.Esp"),
           Container(margin: EdgeInsets.only(top: 10),),
-          this.renderBar(widget.stats.specialDefense, "Sp.Def"),
+          this.renderBar(widget.stats.specialDefense, lang==Languages.English?"Sp.Def":"Def.Esp"),
           Container(margin: EdgeInsets.only(top: 10),),
-          this.renderBar(widget.stats.hp,"Hp"),
+          this.renderBar(widget.stats.hp,lang==Languages.English?"Hp":"Salud"),
         ],
       ),
     );
@@ -98,6 +102,9 @@ class _PokedexPageStatsChart extends State<PokedexPageStatsChart> {
 
   Widget renderRadarChart(){
     PokemonStats stats=widget.stats;
+
+    Languages lang = GeneralData.instance.generalStore.userSettings.language;
+
 
     return Container(
       color: Colors.white,
@@ -112,12 +119,12 @@ class _PokedexPageStatsChart extends State<PokedexPageStatsChart> {
           stats.attack.toDouble()
         ],
         labels: [
-          "HP: ${stats.hp}",
-          "Sp.Atk: ${stats.specialAttack}",
-          "Sp.Def: ${stats.specialDefense}",
-          "Speed: ${stats.speed}",
-          "Def: ${stats.defense}",
-          "Atk: ${stats.attack}",
+          lang==Languages.English?"HP: ${stats.hp}":"Salud ${stats.hp}",
+          lang==Languages.English?"Sp.Atk: ${stats.specialAttack}":"At.Esp: ${stats.specialAttack}",
+          lang==Languages.English?"Sp.Def: ${stats.specialDefense}":"Def.Esp: ${stats.specialDefense}",
+          lang==Languages.English?"Speed: ${stats.speed}":"Velocidad: ${stats.speed}",
+          lang==Languages.English?"Def: ${stats.defense}":"Defensa: ${stats.defense}",
+          lang==Languages.English?"Atk: ${stats.attack}":"Ataque: ${stats.attack}",
         ],
         maxValue: 255,
         animate: false,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:myapp/core/generalState.dart';
 import 'package:myapp/core/helpers/pokemon_helper.dart';
 import 'package:myapp/core/models/pokemon_pokedex.dart';
 import 'package:bordered_text/bordered_text.dart';
@@ -45,6 +46,9 @@ class PokedexPageMainInfo extends StatelessWidget {
   PokedexPageMainInfo(this.pokemon, {Key key}) : super(key: key);
 
   Widget build(BuildContext context) {
+
+    Languages lang = GeneralData.instance.generalStore.userSettings.language;
+
     return Container(
       padding: EdgeInsets.only(left: 5.0, top: 10.0, bottom: 10.0),
       child: Column(
@@ -89,7 +93,7 @@ class PokedexPageMainInfo extends StatelessWidget {
             strokeWidth: 4.0,
             strokeColor: Colors.black,
             child: Text(
-              "Height: ${pokemon.height / 10} m",
+              lang==Languages.English?"Height: ${pokemon.height / 10} m":"Altura: ${pokemon.height / 10} m",
               style: TextStyle(
                   fontFamily: "Roboto",
                   fontSize: 17,
@@ -101,7 +105,7 @@ class PokedexPageMainInfo extends StatelessWidget {
             strokeWidth: 4.0,
             strokeColor: Colors.black,
             child: Text(
-              "Weight: ${pokemon.weight / 10} kg",
+              lang==Languages.English?"Weight: ${pokemon.weight / 10} kg":"Peso: ${pokemon.weight / 10} kg",
               style: TextStyle(
                   fontFamily: "Roboto",
                   fontSize: 17,

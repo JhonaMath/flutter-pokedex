@@ -389,6 +389,11 @@ abstract class GeneralStoreBase with Store {
   void shouldShowImage(bool visiblility) {
     hideImage = visiblility;
   }
+
+  @action
+  void changeLenguage(Languages language) {
+    userSettings.language = language;
+  }
 }
 
 //region Themes

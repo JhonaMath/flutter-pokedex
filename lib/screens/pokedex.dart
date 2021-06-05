@@ -26,6 +26,17 @@ class _PokedexScreen extends State<PokedexScreen> {
         appBar: AppBar(
           title: Text("Pokedex"),
           actions: <Widget>[
+
+            IconButton(
+              icon: GeneralData.instance.generalStore.userSettings.language==Languages.English?Image.asset("assets/en_flag.png"):Image.asset("assets/es_flag.png"),
+              onPressed: () {
+                GeneralData.instance.generalStore.userSettings.language=GeneralData.instance.generalStore.userSettings.language==Languages.English ? Languages.Spanish : Languages.English;
+
+                setState(() {
+                  imageTypeIndex= (imageTypeIndex+1) % 3;
+                });
+              },
+            ),
             IconButton(
               icon: Icon(Icons.switch_account_outlined),
               onPressed: () {
